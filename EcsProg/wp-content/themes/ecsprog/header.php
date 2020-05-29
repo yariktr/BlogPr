@@ -10,50 +10,65 @@
  */
 
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://ecsprog/wp-content/themes/ecsprog/style.css">
 
-	<?php wp_head(); ?>
+    <meta charset="UTF-8">
+    <meta name="description" content="Сайт о IT индустрии. Мы публикуем полезные статьи и материалы, которые могут вам помочь!">
+    <meta name="Keywords" content="IT, SEO, сайты, программирование, верстка, html, css">   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestName</title>
 </head>
+<body>
 
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'ecsprog' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$ecsprog_description = get_bloginfo( 'description', 'display' );
-			if ( $ecsprog_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $ecsprog_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ecsprog' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+   <header class="header">
+      <div class="container">
+      <div class="header__left">
+         <div class="header__brand logo">
+            <a href="#" class="logo__link">
+                TestName
+            </a>
+         </div>
+         <div class="mobile-menu">
+            <button class="mobile-menu__button button-menu" id="button-menu" type="button" aria-label="Меню">
+               <span class="line"></span>
+               <span class="line"></span>
+               <span class="line"></span>
+            </button>
+         </div>
+      </div> 
+      
+      <div class="header__right">
+         <nav class="header__nav main-menu">
+            <ul class="main-menu__list">
+               <li class="main-menu__item"><a href="#" class="main-menu__link">Публикации</a></li>
+               <li class="main-menu__item"><a href="#" class="main-menu__link">Новое</a></li>
+               <li class="main-menu__item"><a href="#" class="main-menu__link">Контакты</a></li>
+               <li class="main-menu__item"><a href="#" class="main-menu__link">О проекте</a></li>
+               <li class="main-menu__item"><a href="#" class="main-menu__link">Реклама</a></li>
+            </ul>
+         </nav>
+         <div class="header__actions">
+            <div class="search">
+               <form action="" class="search__form form">
+                  <div class="form-row">
+                     <label for="" class="form-label">
+                        <input type="text" class="form-input" placeholder="Поиск по сайту">
+                     </label>
+                  </div>
+               </form>
+            </div>
+               <button class="search__button btn-search" type="button">
+                  <svg class="search__icon" viewBox="0 0 490 490"><defs/><path d="M483 454L362 333A203 203 0 00204 0a204 204 0 10129 362l121 121c9 9 21 9 30 0s8-20-1-29zM41 204a163 163 0 11327 0 163 163 0 01-327 0z"/></svg>
+                  <svg class="search__icon" id="close__search" class="search-button-close" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M438 387L307 256l130-131a36 36 0 10-50-50L256 205 125 75a36 36 0 10-50 50l130 131L75 387a36 36 0 1050 51l131-131 131 130a36 36 0 1051-50z"/></svg>
+               </button>
+         </div>
+      </div>
+      </div>
+      <?php wp_head(); ?>
+   </header>
